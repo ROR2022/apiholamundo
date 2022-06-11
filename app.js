@@ -5,7 +5,7 @@ var express = require('express'),
 
 app
 	.get('/', (req, res) => {
-		res.end('<h1>Hola Mundo desde Express</h1>')
+		res.end('<h1>Backend ROR2022</h1>')
 	})
 	
 	.listen(5000)
