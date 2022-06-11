@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const stripe = new Stripe("sk_test_51L8EuNHKsPF0nmZbf6JHakNVUHQFuNYAhBEnmqRUzsQUSYbfsZMMMZV5pTWs3RnQDju8aDYyS6RiUu6VFavTL4BG00PH263eg6");
 
-app.use(cors({origin: 'http://187.254.98.200'}))
+app.use(cors({origin: 'http://localhost:3000'}))
 
 app.use(express.json())
 
