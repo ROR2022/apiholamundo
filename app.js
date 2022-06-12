@@ -14,13 +14,13 @@ app.use(express.json())
 
 app.post('/api/checkout', async (req,res)=>{
     //console.log(req.body);
-    const {id, amount} = req.body;
+    const {id, amount, concepto} = req.body;
     try
     {
         const payment = await stripe.paymentIntents.create({
             amount,
             currency: "MXN",
-            description: "prueba con Pesos",
+            description: concepto,
             payment_method: id,
             confirm: true
         })
