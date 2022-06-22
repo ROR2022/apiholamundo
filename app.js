@@ -2,7 +2,11 @@
 
 const express = require('express');
 const Stripe = require('stripe'),
-		app = express()
+		app = express(),
+        fs = require('fs'),
+        https = require('https');
+
+
 
 const cors = require('cors');
 
@@ -39,8 +43,12 @@ app.post('/api/checkout', async (req,res)=>{
 app
 	.get('/', (req, res) => {
 		res.end('<h1>Backend ROR2022</h1>')
-	})
-	
-	.listen(5000)
+	});
 
-console.log('Iniciando Express en el puerto 5000')
+https.createServer({
+    cert: fs.readFileSync('server.crt'),
+    key: fs.readFileSync('server.key')
+}, app).listen(5000, function(){
+    console.log('Iniciando Express en el puerto 5000');
+})
+
