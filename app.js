@@ -4,6 +4,8 @@ const express = require('express');
 const Stripe = require('stripe'),
 		app = express()
 
+require('dotenv').config();
+
         /* fs = require('fs'),
         https = require('https'); */
 
