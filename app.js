@@ -11,7 +11,8 @@ const Stripe = require('stripe'),
 
 const cors = require('cors');
 
-const stripe = new Stripe("sk_test_51L8EuNHKsPF0nmZbf6JHakNVUHQFuNYAhBEnmqRUzsQUSYbfsZMMMZV5pTWs3RnQDju8aDYyS6RiUu6VFavTL4BG00PH263eg6");
+const stripe = new Stripe("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");
+//sk_test_51L8EuNHKsPF0nmZbf6JHakNVUHQFuNYAhBEnmqRUzsQUSYbfsZMMMZV5pTWs3RnQDju8aDYyS6RiUu6VFavTL4BG00PH263eg6
 
 app.use(cors({origin: 'https://ror2022.github.io'}))
 
