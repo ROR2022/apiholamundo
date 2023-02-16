@@ -1,11 +1,10 @@
-'use strict'
 
 
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
 import  express from 'express';
 import Stripe from 'stripe';
-import dotenv from "dotenv";		
+import dotenv from "dotenv";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";		
 
 const app = express();
 
