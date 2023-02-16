@@ -1,16 +1,20 @@
 'use strict'
 
+
+const { dirname, join } = require("path");
+const { fileURLToPath } = require("url");
 const express = require('express');
 const Stripe = require('stripe'),
 		app = express()
+
+
 
 require('dotenv').config();
 
         /* fs = require('fs'),
         https = require('https'); */
 
-
-
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const cors = require('cors');
 
 const stripe = new Stripe(process.env.SK_STRIPE);
@@ -19,6 +23,7 @@ const stripe = new Stripe(process.env.SK_STRIPE);
 app.use(cors({origin: 'https://ror2022.github.io'}))
 
 app.use(express.json())
+app.use('/face',express.static(join(__dirname, "/pruebaFace.html")));
 
 app.post('/api/checkout', async (req,res)=>{
     //console.log(req.body);
