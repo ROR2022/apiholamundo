@@ -1,15 +1,15 @@
 'use strict'
 
 
-const { dirname, join } = require("path");
-const { fileURLToPath } = require("url");
-const express = require('express');
-const Stripe = require('stripe'),
-		app = express()
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import  express from 'express';
+import Stripe from 'stripe';
+import dotenv from "dotenv";		
 
+const app = express();
 
-
-require('dotenv').config();
+dotenv.config();
 
         /* fs = require('fs'),
         https = require('https'); */
