@@ -1,10 +1,11 @@
 
 
-import  express from 'express';
+import express from 'express';
 import Stripe from 'stripe';
 import dotenv from "dotenv";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";		
+import cors from 'cors';
 
 const app = express();
 
@@ -14,7 +15,7 @@ dotenv.config();
         https = require('https'); */
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const cors = require('cors');
+
 
 const stripe = new Stripe(process.env.SK_STRIPE);
 
@@ -52,7 +53,7 @@ app
 	.get('/', (req, res) => {
 		res.end('<h1>Backend ROR2022</h1>')
 	})
-    .listen(5000);
+    .listen(5000,()=>console.log('Server is Running on port:..5000'));
 
 
 
