@@ -19,6 +19,7 @@ const LoginFace = () => {
 
   return (
     <div>
+      <h1>Pruebas con FaceLogin</h1>
       <button onClick={handleLogin} disabled={isLoading}>
       Login via Facebook
       </button>

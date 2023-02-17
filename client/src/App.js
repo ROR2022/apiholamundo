@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+
 import { FacebookProvider} from 'react-facebook';
 import LoginFace from './LoginFace';
 
