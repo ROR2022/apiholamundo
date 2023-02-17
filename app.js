@@ -23,7 +23,7 @@ const stripe = new Stripe(process.env.SK_STRIPE);
 app.use(cors({origin: 'https://ror2022.github.io'}))
 
 app.use(express.json())
-app.use('/face',express.static(join(__dirname, "/index.html")));
+app.use('/face',express.static(join(__dirname, "/pruebaFace.html")));
 
 app.post('/api/checkout', async (req,res)=>{
     //console.log(req.body);
