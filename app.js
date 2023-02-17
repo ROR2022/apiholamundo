@@ -53,7 +53,11 @@ app
 	.get('/', (req, res) => {
 		res.end('<h1>Backend ROR2022</h1>')
 	})
-    .listen(5000,()=>console.log('Server is Running on port:..5000'));
+    .listen(5000,()=>{
+        console.log('Server is Running on port:..5000');
+        console.log('dirname:..',__dirname);
+    }
+        );
 
 
 
