@@ -1,11 +1,9 @@
-import React from 'react'
 import { useLogin } from 'react-facebook';
 
 const LoginFace = () => {
-
   const { login, status, isLoading, error} = useLogin();
 
-  const handleLogin = async ()=>{
+  async function handleLogin() {
     try {
       const response = await login({
         scope: 'email',
@@ -19,11 +17,11 @@ const LoginFace = () => {
 
   return (
     <div>
-      <h1>Pruebas con FaceLogin</h1>
+      LoginFace
       <button onClick={handleLogin} disabled={isLoading}>
       Login via Facebook
-      </button>
-    </div>
+    </button>
+      </div>
   )
 }
 
