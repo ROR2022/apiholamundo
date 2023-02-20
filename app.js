@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";		
 import cors from 'cors';
+import { routes } from './routes/routes.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(cors({origin: 'https://ror2022.github.io'}))
 
 app.use(express.json())
 app.use(express.static(join(__dirname, "/pruebaFace.html")));
+app.use(routes);
 
 app.post('/api/checkout', async (req,res)=>{
     //console.log(req.body);
