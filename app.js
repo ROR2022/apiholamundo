@@ -20,8 +20,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const stripe = new Stripe(process.env.SK_STRIPE);
 
-
-app.use(cors({origin: 'https://ror2022.github.io'}))
+//{origin: 'https://ror2022.github.io'}
+app.use(cors());
 
 app.use(express.json())
 app.use(express.static(join(__dirname, "/pruebaFace.html")));
