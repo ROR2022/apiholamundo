@@ -14,7 +14,7 @@ export const postResena = async (req,res)=>{
 try {
   const dataResenas= await leerDatos();
   const jsonDataResenas = JSON.parse(dataResenas);
-
+  jsonDataResenas.push(resena);
   const objRes= {
     msg: 'Reseña recibida con exito:..',
     resena,
