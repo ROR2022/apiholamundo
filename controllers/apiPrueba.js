@@ -49,9 +49,16 @@ try {
 export const deleteResena = async (req,res)=>{
   const {id}= req.params;
   try {
+    const dataResenas= await leerDatos();
+    const jsonDataResenas = JSON.parse(dataResenas);
+    const newDataResenas = jsonDataResenas.filter((item)=>item.id!==id);
+    const actualizarDataResenas = await escribirDatos(JSON.stringify(newDataResenas));
+    
     const objRes ={
       msg: 'Eliminando Reseña:..',
-      id
+      id,
+      newDataResenas,
+      actualizarDataResenas
     }
     return res.json(objRes)
   } catch (error) {
