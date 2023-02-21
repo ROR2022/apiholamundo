@@ -22,6 +22,7 @@ export const getAllResenas = async(req,res)=>{
 
 export const postResena = async (req,res)=>{
   const resena = req.body;
+  resena.id= myId();
 try {
 
   const dataResenas= await leerDatos();
@@ -45,6 +46,20 @@ try {
 }
 }
 
+export const deleteResena = async (req,res)=>{
+  const {id}= req.params;
+  try {
+    const objRes ={
+      msg: 'Eliminando Reseña:..',
+      id
+    }
+    return res.json(objRes)
+  } catch (error) {
+    console.log(error);
+    return res.json(error)
+  }
+}
+
 const leerDatos = async ()=>{
  return new Promise ((resolve,reject)=>{
   fs.readFile(`${__dirname}/data/resenas.json`,'utf-8', (err, data) => {
@@ -65,3 +80,14 @@ const escribirDatos = async(data) =>{
     })
   })
 }
+
+export const myId = () => {
+  let id = [];
+  let base = "0123456789ABCDEF";
+
+  for (let i = 0; i < 8; i++) {
+    let numero = (Math.random() * 15).toFixed(0);
+    id.push(base[numero]);
+  }
+  return id.join("");
+};
