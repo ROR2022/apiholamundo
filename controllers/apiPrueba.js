@@ -9,6 +9,17 @@ export const prueba = (req,res)=>{
   res.json(objRes);
 }
 
+export const getAllResenas = async(req,res)=>{
+  try {
+    const dataResenas= await leerDatos();
+    const jsonDataResenas = JSON.parse(dataResenas);
+    return res.json(jsonDataResenas);
+  } catch (error) {
+    console.log(error);
+    return res.json(error)
+  }
+}
+
 export const postResena = async (req,res)=>{
   const resena = req.body;
 try {
