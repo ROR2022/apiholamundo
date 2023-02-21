@@ -13,12 +13,13 @@ export const postResena = async (req,res)=>{
   const resena = req.body;
 try {
   const dataResenas= await leerDatos();
-   
+  const jsonDataResenas = JSON.parse(dataResenas);
 
   const objRes= {
     msg: 'Reseña recibida con exito:..',
     resena,
-    dataResenas
+    dataResenas,
+    jsonDataResenas
   }
   //console.log('DataResenas:..',dataResenas);
   return res.json(objRes)
