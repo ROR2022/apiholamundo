@@ -12,14 +12,19 @@ export const prueba = (req,res)=>{
 export const postResena = async (req,res)=>{
   const resena = req.body;
 try {
+  
   const dataResenas= await leerDatos();
   const jsonDataResenas = JSON.parse(dataResenas);
   jsonDataResenas.push(resena);
+  const newDataResenas = JSON.stringify(jsonDataResenas);
+  const actualizarDataResenas = await escribirDatos(newDataResenas);
+
   const objRes= {
     msg: 'Reseña recibida con exito:..',
     resena,
     dataResenas,
-    jsonDataResenas
+    jsonDataResenas,
+    actualizarDataResenas
   }
   //console.log('DataResenas:..',dataResenas);
   return res.json(objRes)
@@ -37,4 +42,15 @@ const leerDatos = async ()=>{
     return resolve(data);
   });
 })
+}
+
+//writeFile('message.txt', 'Hello Node.js', 'utf8', callback);
+
+const escribirDatos = async(data) =>{
+  return new Promise ((resolve,reject)=>{
+    fs.writeFile(`${__dirname}/data/resenas.json`, data, 'utf-8',(err)=>{
+      if(err) return reject(err);
+      return resolve('Archivo Actualizado:..');
+    })
+  })
 }
