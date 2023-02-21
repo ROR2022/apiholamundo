@@ -12,7 +12,7 @@ export const prueba = (req,res)=>{
 export const postResena = async (req,res)=>{
   const resena = req.body;
 try {
-  
+
   const dataResenas= await leerDatos();
   const jsonDataResenas = JSON.parse(dataResenas);
   jsonDataResenas.push(resena);
@@ -26,7 +26,7 @@ try {
     jsonDataResenas,
     actualizarDataResenas
   }
-  //console.log('DataResenas:..',dataResenas);
+  console.log('newDataResenas:..',newDataResenas);
   return res.json(objRes)
 } catch (error) {
   console.log(error);
