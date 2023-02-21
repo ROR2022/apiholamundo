@@ -15,7 +15,7 @@ dotenv.config();
         /* fs = require('fs'),
         https = require('https'); */
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+export const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
 const stripe = new Stripe(process.env.SK_STRIPE);
