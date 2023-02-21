@@ -12,13 +12,7 @@ export const prueba = (req,res)=>{
 export const postResena = async (req,res)=>{
   const resena = req.body;
 try {
-  const dataResenas= new Promise ((resolve,reject)=>{
-    fs.readFile('/data/resenas.txt', (err, data) => {
-      if (err) return reject(err);
-      console.log(data);
-      return resolve(data);
-    });
-  })
+  const dataResenas= await leerDatos();
    
 
   const objRes= {
@@ -26,9 +20,20 @@ try {
     resena,
     dataResenas
   }
+  //console.log('DataResenas:..',dataResenas);
   return res.json(objRes)
 } catch (error) {
   console.log(error);
   return res.json(error)
 }
+}
+
+const leerDatos = async ()=>{
+ return new Promise ((resolve,reject)=>{
+  fs.readFile(`${__dirname}/data/resenas.json`,'utf-8', (err, data) => {
+    if (err) return reject(err);
+    //console.log(data);
+    return resolve(data);
+  });
+})
 }
